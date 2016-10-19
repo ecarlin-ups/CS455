@@ -8,6 +8,7 @@ $ssn =""; //ssn
 $fnameError ="";
 $lnameError ="";
 $ssnError ="";
+$errors = 0;
 
 
 if(isset($_POST['submit'])) { // Checking null values in message.
@@ -19,16 +20,23 @@ if(isset($_POST['submit'])) { // Checking null values in message.
 	
 	if (empty($_POST["fname"])){
 		$fnameError = "First name is required";
+		$errors = 1;
 	}
 	
 	if (empty($_POST["lname"])){
 		$lnameError = "Last name is required";
+		$errors = 1;
 	}
 
 	if (empty($_POST["ssn"])){
 		$ssnError = "SSN is required";
+		$errors = 1;
 	}
 	
+	if ($_POST["submit"] && $errors == 0){
+	//submit data
+		header('Location: successPage.html');
+	}
 }	
 ?>
 
@@ -54,7 +62,7 @@ if(isset($_POST['submit'])) { // Checking null values in message.
 					<div class="error"><?php echo $lnameError;?></div>
 					<label>SSN :</label>
 					<input class="input" type="text" name="ssn">
-					<div class="error"><?php echo $ssnError;?></div>
+ 					<div class="error"><?php echo $ssnError;?></div>
 					<input class="submit" type="submit" name="submit" value="Submit">
 				</form>
 	</body>

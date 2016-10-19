@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    	<meta charset="utf-8">
+    	<title></title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title="hello,world">  
+</head>
+  <body>
+<p><span >Alex Tomes</span></p>
+<p><span >Evan Carlin</span></p>
+<p><span >Alex Harris</span></p>
+<p><span >Michael Mulay</span></p>
+<p>&nbsp;</p>
+<p><strong>Project 1 : To the Cloud!</strong></p>
+<p><span >CS 455 Database Management Systems</span></p>
+<p><br /><br /></p>
+<p><strong>What command can you type into the terminal to check if apache is currently running?</strong></p>
+<p>&nbsp;</p>
+<p><span >$ sudo apachectl start</span></p>
+<p><span >If the webserver is already running you will get a notification letting you know. </span></p>
+<p>&nbsp;</p>
+<p><strong>What is the difference between ServerRoot and DocumentRoot?</strong></p>
+<p>&nbsp;</p>
+<p><span >The ServerRoot is the directory in which the server&rsquo;s configurations are done, and logs kept. This differs from the DocumentRoot which is the directory in which the web pages are stored and which takes requests from users.</span></p>
+<p>&nbsp;</p>
+<p><span >Note: our DocumentRoot is specified in default-ssl.conf. The location of the document root is /var/www/html</span></p>
+<p>&nbsp;</p>
+<p><strong>What port does your web server listen to for HTTP connections from browsers? Can you change this port?</strong></p>
+<p>&nbsp;</p>
+<p><span >Our web server listens to port 80. We </span><em><span >can </span></em><span >change the port, we would do this to listen to specific IP addresses to prevent Apache from glomming onto all bound IP addresses.</span></p>
+<p>&nbsp;</p>
+<p><strong>In what directory do you need to place all of your HTML and PHP documents for apache to serve them up? Test by navigating to this directory, and if your hunch is right, you should find some </strong><strong><em>It Worked! </em></strong><strong>HTML document.</strong></p>
+<p>&nbsp;</p>
+<p><span >The DocumentRoot, at /var/www/html</span></p>
+<p><br /><br /></p>
+<p><strong>What file contains all of Apache&rsquo;s traffic logs? What about its error logs?</strong></p>
+<p>&nbsp;</p>
+<p><span >Apache&rsquo;s traffic logs can be found at /var/log/apache2/access.log</span></p>
+<p><span >Apache&rsquo;s error log can be found at /var/log/apache2/error.log</span></p>
+<p><br /><br /></p>
+<p><strong>What is a directory index file? Why would it be nice to have one in each directory?</strong></p>
+<p>&nbsp;</p>
+<p><a href="http://httpd.apache.org/docs/current/mod/mod_dir.html"><span >http://httpd.apache.org/docs/current/mod/mod_dir.html</span></a></p>
+<p>&nbsp;</p>
+<p><span >It&rsquo;s the file that describes that directory. It will display to the user the information that maker intended. Without having this index file, if a user navigates to the url/directory, they will be presented with a list of files and subdirectories contained within that directory.</span></p>
+<p>&nbsp;</p>
+<p><span >Having an index file in all directories will keep the public from seeing a list of every file and directory within a directory. </span></p>
+<p>&nbsp;</p>
+<p><strong>How do you give every user on your Linux machine their own web space? Look into public html</strong></p>
+<p>&nbsp;</p>
+<p><span >Each user may have their own webspace through the use of multiple public_html files. These are each stored within the parent public_html directory.</span></p>
+<p>&nbsp;</p>
+<p><span >Example: </span></p>
+<p><span >public_html/website1</span></p>
+<p><span >public_html/website2</span></p>
+<br>
+<p><strong>How do you create a password protected directory (like I did for the class notes)? Look into htpasswd and .htaccess files</strong></p>
+<p><span >Following these steps: </span><a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-password-authentication-with-apache-on-ubuntu-14-04"><span >https://www.digitalocean.com/community/tutorials/how-to-set-up-password-authentication-with-apache-on-ubuntu-14-04</span></a></p>
+<p>&nbsp;</p>
+<ol>
+<li ><span >Using the htpasswd utility create a .passwd file in the /etc/apaceh2/ directory add users to this file using the same utility. </span></li>
+<li ><span >Edit the .conf to allow for .htaccess</span></li>
+<li ><span >Add an .htaccess file to the directory you wish to restrict</span></li>
+</ol>
+<p>&nbsp;</p>
+<p><strong>When the browser tries to access a page that doesn&rsquo;t exist, the HTTP protocol issues a 404 error code. There&rsquo;s a way to send the browser to a particular document upon issuing this error. How?</strong></p>
+<p>&nbsp;</p>
+<p><span >Include in the .htaccess file a directive to load the desired page :</span></p>
+<p><span >&gt; ErrorDocument 404 /404.php </span></p>
+<p><span >or </span></p>
+<p><span >&gt; ErrorDocument 404 /index.html</span> <span >// send user&rsquo;s back to homepage upon 404 error</span></p>
+<p>&nbsp;</p>
+<p><span >http://www.cyberciti.biz/faq/linux-redirect-error-output-to-file/</span></p>
+<p>&nbsp;</p>
+<p><strong>Apache implements the HTTP protocol. The protocol is extremely simple, with just a few commands. What is the difference between the GET, POST, and HEAD commands?</strong></p>
+<p>&nbsp;</p>
+<p><span >GET - Requests data from a specified resource:</span></p>
+<ul>
+<li ><span >Can be cached.</span></li>
+<li ><span >Remain in the browser history.</span></li>
+<li ><span >Can be bookmarked.</span></li>
+<li ><span >Requests have length restrictions.</span></li>
+</ul>
+<p><span >POST - Submits data to be processed to a specified resource.</span></p>
+<ul>
+<li ><span >Never cached.</span></li>
+<li ><span >Don&rsquo;t remain in the browser history.</span></li>
+<li ><span >Can&rsquo;t be bookmarked.</span></li>
+<li ><span >No restrictions on data length.</span></li>
+</ul>
+<p><span >HEAD - Same as GET but returns only HTTP headers and no document body.</span></p>
+<p>&nbsp;</p>
+<p><strong>Reference</strong><span >: http://www.w3schools.com/tags/ref_httpmethods.asp</span></p>
+<p><br /><br /><br /><br /></p>	
+
+
+
+
+
+	</p>
+  </body>
+</html>
