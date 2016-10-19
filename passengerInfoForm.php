@@ -6,13 +6,9 @@ $Lname =""; // Last name
 $ssn =""; //ssn
 
 $fnameError ="";
-$mnameError ="";
 $lnameError ="";
 $ssnError ="";
 
-
-$errors = 0;
-$successMessage ="";
 
 if(isset($_POST['submit'])) { // Checking null values in message.
 
@@ -23,10 +19,6 @@ if(isset($_POST['submit'])) { // Checking null values in message.
 	
 	if (empty($_POST["fname"])){
 		$fnameError = "First name is required";
-	}
-
-	if (empty($_POST["mname"])){
-		$mnameError = "Middle name is required";
 	}
 	
 	if (empty($_POST["lname"])){
@@ -56,7 +48,7 @@ if(isset($_POST['submit'])) { // Checking null values in message.
 					<div class="error"><?php echo $fnameError;?></div>
 					<label>Middle Name :</label>
 					<input class="input" type="text" name="mname">
-					<div class="error"><?php echo $mnameError;?></div>
+					<div></div>
 					<label>Last Name :</label>
 					<input class="input" type="text" name="lname">
 					<div class="error"><?php echo $lnameError;?></div>
@@ -64,7 +56,6 @@ if(isset($_POST['submit'])) { // Checking null values in message.
 					<input class="input" type="text" name="ssn">
 					<div class="error"><?php echo $ssnError;?></div>
 					<input class="submit" type="submit" name="submit" value="Submit">
-					<div style="background-color:green"><?php echo $successMessage;?></div>
 				</form>
 	</body>
 </html>
