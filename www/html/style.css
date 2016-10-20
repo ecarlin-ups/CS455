@@ -7,8 +7,6 @@ color:red;
 }
 
 .success {
-    padding: 20px;
     background-color: #00FF00; /* Red */
     color: white;
-    margin-bottom: 15px;
 }

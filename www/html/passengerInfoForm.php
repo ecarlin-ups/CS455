@@ -1,23 +1,12 @@
 <?php
-
-$fname =""; // First name
-$mname =""; // Middle name
-$Lname =""; // Last name
-$ssn =""; //ssn
+$successMessage = "";
 
 $fnameError ="";
 $lnameError ="";
 $ssnError ="";
 $errors = 0;
+if(isset($_POST['submit'])){ // Checking null values in message.
 
-
-if(isset($_POST['submit'])) { // Checking null values in message.
-
-	$fname = $_POST["fname"];
-	$mname = $_POST["mname"];
-	$lname = $_POST["lname"];
-	$ssn = $_POST["ssn"];
-	
 	if (empty($_POST["fname"])){
 		$fnameError = "First name is required";
 		$errors = 1;
@@ -27,15 +16,15 @@ if(isset($_POST['submit'])) { // Checking null values in message.
 		$lnameError = "Last name is required";
 		$errors = 1;
 	}
-
 	if (empty($_POST["ssn"])){
 		$ssnError = "SSN is required";
 		$errors = 1;
 	}
 	
 	if ($_POST["submit"] && $errors == 0){
-	//submit data
-		header('Location: successPage.html');
+		$successMessage = "Success";
+		echo "**********";
+		include 'passengerFormHandler.php';
 	}
 }	
 ?>
@@ -49,8 +38,9 @@ if(isset($_POST['submit'])) { // Checking null values in message.
 	<title="Passenger Info Form">  
 </head>
 	<body>
+			<h1 class="success"><?php echo $successMessage ?><h1>
 				<h2>Passenger Info Form</h2>
-				<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> <!-- client side scripting protection -->
+				<form method="post" action="passengerInfoForm.php">
 					<label>First Name :</label>
 					<input class="input" type="text" name="fname">
 					<div class="error"><?php echo $fnameError;?></div>

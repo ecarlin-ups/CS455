@@ -9,5 +9,6 @@
 	<body>
 		<div class="success">Your data was successfully submitted!</div>
 		<?php var_dump($_POST["ssn"]);?>
+		<?php echo "hello";?>
 	</body>
 </hmtl>
